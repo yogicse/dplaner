@@ -1,23 +1,27 @@
 <?php
+$page_url = "/user/note.php?r=1&source=documents";
+$redirect_url = "/user/note.php?r=1&source=documents";
 
 
 if(!isset($_SESSION['username'])){ 
     header('location:../login.php');
-    
+
    //  $uid = $session_user_id = get_session_user_id();
    }
    $uid = $_SESSION['id'];
 
     
-    // pagination calculation code
-    $limit = 2;
+   
+// pagination calculation code
+$limit = 2;
+
     
-    if(isset($_GET['page'])){
-        $page = $_GET['page'];
-    }else{
-        $page = 1;
-    }
-    $offset = ($page - 1) * $limit;
+if(isset($_GET['page'])){
+    $page_number= $_GET['page'];
+}else{
+    $page_number = 1;
+}
+$offset = ($page_number- 1) * $limit;
 
    // add limit in select query for pagination
     $query = "SELECT*FROM notestable WHERE user_id = '$uid' LIMIT {$offset },{$limit}";
@@ -35,9 +39,7 @@ $result = mysqli_num_rows($data);
 }
    
 
-
-
-   // filter code
+  // filter code
 $todate = $fromdate = "";
 
 if(isset($_POST['submit'])){
@@ -64,14 +66,12 @@ if(isset($_POST['submit'])){
 ?>
 
 
-
-
 <h2 class="text-center">Notes list</h2>
 
 <div>
     <form class="form-inline my-2 my-lg-0" method="POST">
 
-       
+
         <label for="from">From</label>
         <input type="date" id="from" name="from" required value="<?php echo $fromdate ?>">
         <label for="to">to</label>
@@ -82,15 +82,11 @@ if(isset($_POST['submit'])){
     </form>
 
     <form action="" method='post'>
-    <input class="form-control-warning mr-sm-2" type="search" placeholder="Search" name="keyword"
+        <input class="form-control-warning mr-sm-2" type="search" placeholder="Search" name="keyword"
             aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0" type="submit" name="search" value="search">Search</button>
 
     </form>
-
-
-
-
 
 </div>
 
@@ -101,15 +97,6 @@ if(isset($_POST['submit'])){
 
 </div>
 
-
-
-
-<?php
-
-
-
-
-        ?>
 
 
 <table class="table table-bordered table-hover">
@@ -154,40 +141,26 @@ if(isset($_POST['submit'])){
         <?php
     }
     ?>
-
-
-
+        <!-- table code -->
 </table>
+
 
 <?php
     $sql1 = "SELECT*FROM notestable WHERE user_id = '$uid'";
-
     $result1 = mysqli_query($connection,$sql1) or die("Query Failed.");
-
     if(mysqli_num_rows($result1) > 0){
+    $total_records = mysqli_num_rows($result1);
+    //$limit = 3;
+     $total_pages = ceil($total_records / $limit);
 
-        $total_records = mysqli_num_rows($result1);
+     $prev = $page_number - 1;
+     $next = $page_number + 1;   
+ }
 
-        //$limit = 3;
+ ?>
 
-        $total_page = ceil($total_records / $limit);
- 
-        echo '<ul class="pagination">';
-        if($page > 1){
-         echo '<li class="page-item"><a class="page-link" href="note.php?page='.($page-1).'">Prev</a></li>';
-         }
-
-        for($i = 1; $i <= $total_page; $i++){
-          echo '<li class="page-item" ><a class="page-link" href="note.php?page='.$i.'">'.$i.'</a></li>';
-         }
-
-        if($total_page > $page){
-          echo '<li class="page-item"><a class="page-link" href="note.php?page='.($page+1).'" >Next</a></li>';
-        }
-        echo '</ul">';
-    }
-
-    ?>
-
-
-
+<div class="row">
+        <div class="col-md-12 text-center">
+            <?=pagination($page_number,$total_pages,$prev,$next,$redirect_url)?>
+        </div>
+    </div>

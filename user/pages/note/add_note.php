@@ -1,62 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Add notes</h2>
-</body>
-</html> -->
-
-<?php
-
-// $table_name = "documents";
-// $redirect_url = "/client/court.php?source=documents";
-// $session_user_id = get_session_user_id();
-// $agent_id = get_client_agent_id($session_user_id);
-
-// if (isset($_POST['add_record'])) {
-
-//     $title = pg_escape_string($_POST['title']);
-//     $status = pg_escape_string($_POST['status']);
-
-//     $current_date_time = get_current_date_time();
-
-//     $path = upload_documents("path",$session_user_id,"documents/");
-
-//     $query = "INSERT INTO " . $table_name . "(user_id,
-//                                             client_id,
-//                                             agent_id,
-//                                               title,
-//                                               path,
-//                                               status,
-//                                               created_at,
-//                                               updated_at) ";
-
-//     $query .= "VALUES('". $session_user_id ."',
-//     '". $session_user_id ."',
-//     '". $agent_id ."',
-//                       '" . $title . "',
-//                       '" . $path . "',
-//                       '" . $status . "',
-//                       '" . $current_date_time . "',
-//                       '" . $current_date_time . "')";
-
-
-
-//     $add_record_query = pg_query($connection, $query);
-
-//     if ($add_record_query) {
-//         confirmQuery($add_record_query);
-//         $message_success = "Record Added Successfully";
-//         header("Location: " . $redirect_url . "&msg_success=" . $message_success);
-//     } else {
-//         echo "Database error: " . $pg_last_error($connection);
-//     }
-// }
-?>
 
     <!-- insert query -->
     <?php
@@ -91,17 +32,11 @@ $uid = $_SESSION['id'];
         </script>
         <?php
     }
-
-
     }
-    
-    
     
     ?>
 
-
-
-
+<!-- add notes form -->
 <form action="" method="post" >
 <h2>Add Notes</h2>
 <div class="form-row">
