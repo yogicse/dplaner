@@ -231,7 +231,7 @@ function pagination($page,$total_pages,$prev,$next,$page_url)
     <ul class="pagination justify-content-center">
         <li class="page-item <?php if($page <= 1){ echo 'disabled'; } ?>">
             <a class="page-link"
-                href="<?php if($page <= 1){ echo '#'; } else { echo "&page=" . $prev; } ?>">Previous</a>
+                href="<?php if($page <= 1){ echo '#'; } else { echo $page_url."&page=" . $prev; } ?>">Previous</a>
         </li>
         <?php for($i = 1; $i <= $total_pages; $i++ ): ?>
         <li class="page-item <?php if($page == $i) {echo 'active'; } ?>">
@@ -240,7 +240,7 @@ function pagination($page,$total_pages,$prev,$next,$page_url)
         <?php endfor; ?>
         <li class="page-item <?php if($page >= $total_pages) { echo 'disabled'; } ?>">
             <a class="page-link"
-                href="<?php if($page >= $total_pages){ echo '#'; } else {echo "&page=". $next; } ?>">Next</a>
+                href="<?php if($page >= $total_pages){ echo '#'; } else {echo $page_url."&page=". $next; } ?>">Next</a>
         </li>
     </ul>
     </nav>

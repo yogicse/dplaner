@@ -51,7 +51,7 @@ $uid = $_SESSION['id'];
         <div class="col-md-12 mb-3">
             <div class="form-group">
                 <label for="notes">Notes</label>
-                <textarea class="form-control" name="notes" id="" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="notes" id="comment" cols="30" rows="10"></textarea>
             </div>
         </div>
 
@@ -70,3 +70,7 @@ $uid = $_SESSION['id'];
         </div>
     </div>
 </form>
+
+<script>
+    initReadonlySample();
+</script>

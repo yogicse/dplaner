@@ -42,7 +42,7 @@ if(isset($_POST['update-btn'])){
             
               alert("Your Profile Updated Successfuly");
            
-              window.open("http://projectmanegment.local/user/dashboard.php","_self");
+              window.open("<?php echo SITEURL;?>/user/dashboard.php","_self");
            </script>
          <?php
       }else{
