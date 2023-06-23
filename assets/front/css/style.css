@@ -1,0 +1,183 @@
+body { 
+/*background-color: #cecece;*/
+  font-family: "Arial, Geneva, Helvetica, sans-serif";
+}
+
+.nav li {
+box-shadow: 0px 2px 4px 1px;
+}
+
+.hideThis {
+
+display: none;
+
+}
+
+ ul {
+
+list-style: none !important;
+
+}
+
+.main-content {
+
+
+min-height: 240px;
+background: #FFF;
+padding: 20px;
+border-radius: 5px;
+word-wrap: break-word;
+box-shadow: 0px 1px 9px 3px;
+}
+
+
+.content aside  ul li {
+background: #408B74;
+padding: 4px;
+border-radius: 5px;
+margin-bottom: 6px;
+
+}
+
+.content aside ul li a {
+
+color: #000;
+font-weight: bold;
+
+}
+
+
+.content aside ul li a:hover {
+
+background: #2F9D3D;
+
+
+}
+
+.activeLink a {
+
+color: #FFF !important;
+text-transform: uppercase;
+
+}
+
+.resources {
+
+margin-top: 2%;
+
+}
+div.a {
+  text-align: center;
+}
+
+div.b {
+  text-align: left;
+}
+
+div.c {
+  text-align: right;
+} 
+
+div.d {
+  text-align: justify;
+} 
+
+.table-title .add-new i {
+    margin-right: 4px;
+}
+table.table {
+    table-layout: fixed;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table th:last-child {
+    width: 100px;
+}
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}    
+table.table td a.add {
+    color: #27C46B;
+}
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #E34724;
+}
+table.table td i {
+    font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add {
+    display: none;
+}
+
+canvas#signature {
+  border: 2px solid black;
+}
+
+form>* {
+  margin: 10px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "\2714";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "\274C";
+}

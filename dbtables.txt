@@ -1,0 +1,133 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 22, 2023 at 03:15 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `projectmanegment`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notestable`
+--
+
+CREATE TABLE `notestable` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `notes` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `notestable`
+--
+
+INSERT INTO `notestable` (`id`, `user_id`, `title`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 0, 'title', 'conent', '2023-06-20 12:16:02', '0000-00-00 00:00:00'),
+(2, 0, 'title2', 'body 2', '2023-06-20 12:20:34', '0000-00-00 00:00:00'),
+(3, 0, 'title12', 'nbndkdn edlked', '2023-06-20 12:28:38', '0000-00-00 00:00:00'),
+(4, 0, 'hh', 'wswjhs', '2023-06-20 12:32:34', '0000-00-00 00:00:00'),
+(5, 0, 'dwedmjeh', 'ksmwh', '2023-06-20 12:34:17', '0000-00-00 00:00:00'),
+(6, 0, 'sdfkjcrfhrlf', 'mdkdkcdkfjekc', '2023-06-20 12:35:41', '0000-00-00 00:00:00'),
+(7, 0, 'dmedk', '.ḍṣṁed.w3ked ', '2023-06-20 12:36:16', '0000-00-00 00:00:00'),
+(8, 0, 'wswx', 'sxdxd', '2023-06-20 12:39:21', '0000-00-00 00:00:00'),
+(9, 0, 'dkjewfd', 'd xsdknewdc', '2023-06-20 12:40:08', '0000-00-00 00:00:00'),
+(12, 10, 'title 2', 'body 12.1', '2023-06-21 08:58:44', '0000-00-00 00:00:00'),
+(15, 11, 'title1', 'Where does it come from?\r\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.mkji', '2023-06-21 09:59:29', '0000-00-00 00:00:00'),
+(16, 11, 'title2', 'Notes is a notetaking app developed by Apple Inc. It is provided on their iOS, iPadOS and macOS operating systems, the latter starting with OS X Mountain Lion. It functions as a service for making short text notes, which can be synchronized between devices using Apple\'s iCloud service. The application uses a similar interface on iOS and macOS, with a non-textured paper background for notes and light yellow icons, suggesting pencil or crayon. Until 2013, both applications used a strongly skeuomorphic interface, with a lined, textured paper design; the Mountain Lion version placed this inside a leather folder. This design was replaced in OS X Mavericks and iOS 7.', '2023-06-21 09:44:49', '0000-00-00 00:00:00'),
+(17, 11, 'title2', 'notes 2sx,dlel̥dkerofkrfl,, sfbks', '2023-06-21 12:42:27', '0000-00-00 00:00:00'),
+(18, 11, 'title4', 'notes4', '2023-06-21 11:50:10', '0000-00-00 00:00:00'),
+(19, 11, 'title 5', 'notes5', '2023-06-21 11:50:24', '0000-00-00 00:00:00'),
+(20, 11, ' title 6', 'notes 6', '2023-06-21 11:50:44', '0000-00-00 00:00:00'),
+(22, 11, 'next', 'dnwnq kjsnhduxhwduxfuchefh', '2023-06-22 11:19:58', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `firstname` varchar(250) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` int(12) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime NOT NULL,
+  `role` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `phone`, `created_at`, `updated_at`, `role`) VALUES
+(1, 'raj123', '$2y$10$qlk6.5iXvXNLLsIxcJrN8uxYIqzyHHyQYgvGcvZpMxlf.n6BvVFFK', 'Raj', 'Kumar', 'raj123@gmail.com', 2147483647, '2023-06-19 06:29:48', '2023-06-19 11:59:48', 'Client'),
+(2, 'nr123', '$2y$10$.aBuT8HxT749ftx0EWb8/uqT/beIjy9M3hFgd7RDrGfr4S1vDLHgm', 'Naresh kumar', 'Kumar25', 'kumarnaresh03061999@gmail.com', 2147483647, '2023-06-20 08:25:35', '2023-06-19 12:05:20', 'Client'),
+(3, 'Rahul123', '$2y$10$N.TgZ9bc3/EOOwBB0QJBiuRgM9cc/qvlcmaaeLCpJQcD3N6piE1vG', 'Rahul 123', 'Kumarfatehpur', 'rahul123@gmail.com', 2147483647, '2023-06-20 09:20:57', '2023-06-19 12:10:57', 'Client'),
+(4, 'ram123', '$2y$10$V15KyPqZr98QwFdm2anY3uoQxNWq0idfBA8KF6HvwlkOHb/DFJ54u', 'Ram', 'Kumar', 'ram123@gmail.com', 2147483647, '2023-06-19 06:44:29', '2023-06-19 12:14:29', 'Client'),
+(5, 'Mohan123', '$2y$10$kUm3dq1biPmh4GS7/7TlBOGqdwxdl84Rl9YAC3BvwmP9n2lpXUxha', 'Mohan', 'Kumar', 'mohan123@gmail.com', 2147483647, '2023-06-19 06:59:15', '2023-06-19 12:29:15', 'Client'),
+(6, 'Raman123', '16454faa4adf45ae5c721f89652e6430', 'Raman', 'Kumar', 'raman123@gmail.com', 2147483647, '2023-06-19 08:07:27', '2023-06-19 13:37:27', 'Client'),
+(7, 'Sohan123', '70e963fc192987cfb778115967fee0fa', 'Sohan', 'Kumarkumar', 'sohan12345@gmail.com', 2147483647, '2023-06-20 08:37:40', '2023-06-19 14:21:36', 'User'),
+(8, 'Monu12345', 'a5b0c9dc8917f45428b2203ff06cf286', 'Monu kumar12', 'Kumar', 'munu123@gmail.com', 2147483647, '2023-06-20 08:15:18', '2023-06-20 05:22:57', 'User'),
+(9, 'shiv1234', 'a12c5f4a6b04bb946fad1d316bfb11b7', 'Shivaas', 'Baba123', 'shiva1234@gmail.com', 2147483647, '2023-06-20 08:02:58', '2023-06-20 08:08:27', 'User'),
+(10, 'Ramesh123', '31582f735f96611d81a5b4aaf41232aa', 'Ramesh', 'Kumarr123', 'ramesh123@gmail.com', 2147483647, '2023-06-21 03:36:47', '2023-06-20 11:23:01', 'User'),
+(11, 'jalaj123', 'a85d80fafa12b2b38a462299f09fed31', 'Jalaj', 'Tiwari', 'jalaj123@gmail.com', 2147483647, '2023-06-21 06:12:26', '2023-06-21 11:42:26', 'User');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `notestable`
+--
+ALTER TABLE `notestable`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `notestable`
+--
+ALTER TABLE `notestable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
