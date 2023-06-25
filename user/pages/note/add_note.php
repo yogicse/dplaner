@@ -1,7 +1,6 @@
-
-    <!-- insert query -->
-    <?php
+ <?php
 // session_start();
+$redirect_url = "/user/note.php?source=documents";
 if(!isset($_SESSION['username'])){ 
  header('location:../login.php');
  
@@ -9,36 +8,29 @@ if(!isset($_SESSION['username'])){
 }
 $uid = $_SESSION['id'];
 
-
-    if(isset($_POST['add_record'])){
+ if(isset($_POST['add_record'])){
         
-        // $uid = mysqli_real_escape_string($con , $_POST['user_id']);
         $title = mysqli_real_escape_string($connection , $_POST['title']);
         $notes = mysqli_real_escape_string($connection , $_POST['notes']);
+        $query = "INSERT INTO notestable (user_id, title,notes) VALUE ('$uid', '$title', '$notes')";
+        $data = mysqli_query($connection, $query);
+     
 
-         $query = "INSERT INTO notestable (user_id, title,notes) VALUE ('$uid', '$title', '$notes')";
-        
-       $data = mysqli_query($connection, $query);
-       if($data){
-        ?>
-          <script type = "text/javascript">
-            alert ("Data save succesfully");
-        </script>
-        <?php
-      }else{
-        ?>
-          <script type = "text/javascript">
-            alert ("No record found please try again");
-        </script>
-        <?php
-    }
+    if ($data) {
+        confirmQuery($data);
+        $message_success = "Record Added Successfully";
+        header("Location: " . $redirect_url . "&msg_success=" . $message_success);
+    } else {
+        echo "Database error: " . $mysqli_last_error($connection);
     }
     
+    }
+
     ?>
 
 <!-- add notes form -->
 <form action="" method="post" >
-<h2>Add Notes</h2>
+
 <div class="form-row">
 
     <div class="form-row">

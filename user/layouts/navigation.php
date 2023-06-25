@@ -103,7 +103,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#invoices"><i class="fa fa-book fa-fw"></i> Note <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="invoices" class="collapse submenu">
                             <li>
-                                <a href="note.php?source=notes"> View Notes</a>
+                                <a href="note.php?source=notes">Notes</a>
                             </li>
                             <li>
                                 <a href="note.php?source=add_notes"> Add Notes</a>

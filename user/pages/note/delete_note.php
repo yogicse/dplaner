@@ -1,24 +1,16 @@
 <?php
 $id = $_GET['id'];
-
+$redirect_url = "/user/note.php?source=documents";
 $queryd = "DELETE FROM notestable WHERE id = '$id'";
 
-$d = mysqli_query($connection, $queryd);
+$delete_q = mysqli_query($connection, $queryd);
 
-if($d){
-    ?>
-    <script>
-        alert('data has been deletd successfully');
-        window.open("<?php echo SITEURL ?>/user/note.php?source=notes", "_self");
-    </script>
-<?php
-}
-else{
-    ?>
-<script>
-alert('Please try Again');
-</script>
-<?php
+if ($delete_q ) {
+    confirmQuery($delete_q );
+    $message_success = "Record Deleted Successfully";
+    header("Location: " . $redirect_url . "&msg_success=" . $message_success);
+} else {
+    echo "Database error: " . $mysqli_last_error($connection);
 }
 
 ?>

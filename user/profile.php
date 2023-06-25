@@ -80,12 +80,12 @@ if(isset($_POST['update-btn'])){
 <hr>
      <div class="form-group">
         <label for="uid">Id</label>
-         <input type="text" class="form-control" name="id" value ="<?php echo $_SESSION['id']; ?>">
+         <input type="hidden" class="form-control" name="id" value ="<?php echo $_SESSION['id']; ?>">
      </div>
 
      <div class="form-group">
         <label for="uname">Username</label>
-         <input type="text" class="form-control" name="username" value ="<?php echo $_SESSION['username']; ?>">
+         <input type="text" class="form-control" name="username" value ="<?php echo $_SESSION['username'];?>"readonly>
      </div>
      
      <div class="form-group">

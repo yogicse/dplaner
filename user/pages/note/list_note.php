@@ -9,16 +9,14 @@ if(!isset($_SESSION['username'])){
 $uid = get_session_user_id();
     
 // pagination calculation code
-
 $limit = 2;
 $page_number = isset($_GET['page']) ? $_GET['page'] :1;
 $offset = ($page_number- 1) * $limit;
 
 // add limit in select query for pagination
-$query = "SELECT*FROM notestable WHERE user_id = '$uid' LIMIT {$offset },{$limit}";
-$data = mysqli_query($connection, $query);
-$result = mysqli_num_rows($data);
-
+        $query = "SELECT*FROM notestable WHERE user_id = '$uid' ORDER BY created_at DESC LIMIT {$offset },{$limit}";
+        $data = mysqli_query($connection, $query);
+        $result = mysqli_num_rows($data);
 
 //for search div
 if(isset($_POST['search'])){
@@ -28,7 +26,6 @@ if(isset($_POST['search'])){
     $result = mysqli_num_rows($data);
 }
    
-
 // filter code
 $todate = $fromdate = "";
 if(isset($_POST['submit'])) {
@@ -43,9 +40,6 @@ if(isset($_POST['submit'])) {
     $result = mysqli_num_rows($data);
 }
 ?>
-
-
-<h2 class="text-center">Notes list</h2>
 
 <div class="search-filter">
     <form class="form-inline my-2 my-lg-0" method="POST">
@@ -70,12 +64,11 @@ if(isset($_POST['submit'])) {
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Notes</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th colspan='2'>Action</th>
+            <th class="text-center">Id</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Created At</th>
+            <th class="text-center">Updated At</th>
+            <th class="text-center">View</th>
         </tr>
     </thead>
     <tbody>
@@ -83,15 +76,13 @@ if(isset($_POST['submit'])) {
     if($result > 0){
        while($row = mysqli_fetch_array($data)){
         ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['notes']; ?></td>
-            <td><?php echo $row['created_at']; ?></td>
-            <td><?php echo $row['updated_at']; ?></td>
-            <td><a href='/user/note.php?id=<?=$row['id']?>&source=edit_notes'><?=edit_icon()?></a></td>
-            <td><a href='/user/note.php?id=<?=$row['id']?>&source=delete_notes'><?=delete_icon()?></a></td>
-        </tr>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['title']; ?></td>
+                <td class="text-center"><?php echo $row['created_at']; ?></td>
+                <td class="text-center"><?php echo $row['updated_at']; ?></td>
+                <td class="text-center"><a href='/user/note.php?id=<?=$row['id']?>&source=view_notes'><?=view_icon()?></a></td>
+            </tr>
         <?php
        }
     }else{
@@ -107,17 +98,17 @@ if(isset($_POST['submit'])) {
 
 
 <?php
-    $total_pages = 1;
-    $prev =0;
-    $next = 0; 
-    $sql1 = "SELECT*FROM notestable WHERE user_id = '$uid'";
-    $result1 = mysqli_query($connection,$sql1) or die("Query Failed.");
-    if(mysqli_num_rows($result1) > 0){
-        $total_records = mysqli_num_rows($result1);
-        $total_pages = ceil($total_records / $limit) ?? 1;
-        $prev = $page_number - 1;
-        $next = $page_number + 1;   
-    }
+        $total_pages = 1;
+        $prev =0;
+        $next = 0; 
+        $sql1 = "SELECT*FROM notestable WHERE user_id = '$uid'";
+        $result1 = mysqli_query($connection,$sql1) or die("Query Failed.");
+        if(mysqli_num_rows($result1) > 0){
+                $total_records = mysqli_num_rows($result1);
+                $total_pages = ceil($total_records / $limit) ?? 1;
+                $prev = $page_number - 1;
+                $next = $page_number + 1;   
+}
 
  ?>
 

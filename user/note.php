@@ -2,12 +2,19 @@
     include_once '../includes/common.php';
 
     $source = get_source();  
-
-
     $page_title = getTitle($source);
 
-
-    include 'layouts/header.php'; 
+    if($page_title == "Note") {
+        $page_title = "Note Orders";
+    }
+    
+    if($source  == "blank") {
+        include "pages/court/cases/blank.php";
+        exit();
+    }
+    include 'layouts/header.php';
+    
+    
 
 ?>
 
@@ -19,6 +26,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                      
+                <?=message()?>
+
+                <h1 class="page-header">
+                        <?php if ($page_title === 'Note Order') :?>       
+                        <large>Your Note</large>
+                        <small>List of your current and upcoming Notes</small>
+                        <?php else:?>
+                            <?=$page_title?>
+                        <?php endif;?>
+                    </h1>
 
 
                     <?php
@@ -30,6 +48,10 @@
                             
                             case 'edit_notes';
                                 include "pages/note/edit_note.php";
+                            break;
+
+                            case 'view_notes';
+                                include "pages/note/view_note.php";
                             break;
 
                             case 'delete_notes';

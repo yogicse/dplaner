@@ -101,7 +101,7 @@ function getTitle($source = "")
     $activePage = str_replace("_", " ", ucfirst(rtrim($activePage, "\.php")));
 
     if ($source) {
-        $activePage = str_replace("_", " ", ucfirst($source)) . " " . $activePage;
+        $activePage = str_replace("_", " ", ucfirst($source)) . " " ;
     }
 
     return $activePage;
@@ -130,6 +130,19 @@ function message()
     }
     ?>
 <?php
+}
+
+
+
+function confirmQuery($result)
+{
+
+    global $connection;
+
+    if (!$result) {
+
+        die("QUERY FAILED ." . mysqli_error($connection));
+    }
 }
 
 
@@ -171,6 +184,11 @@ function encrypt_password($password)
 function edit_icon()
 {
     return '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>';
+}
+
+function view_icon()
+{
+    return '<i class="fa fa-eye" aria-hidden="true"></i>';
 }
 
 function delete_icon()

@@ -21,7 +21,7 @@ if (empty($_SESSION['role'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=(isset($page_title) && !empty($page_title)) ? $page_title." - " : ""?> Legal CMS Administration</title>
+    <title><?=(isset($page_title) && !empty($page_title)) ? $page_title." - " : ""?> Notes Project</title>
 
     <link href="/assets/back/kendo/js/kendo.common.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/back/kendo/js/kendo.blueopal.min.css" rel="stylesheet" type="text/css" />
