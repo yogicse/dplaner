@@ -65,10 +65,11 @@
                             <td><?php echo $row['time_sheet_date']; ?></td>
                             <td><a href='/user/time_sheet.php?id=<?=$row['id']?>&source=delete_notes'><?=delete_icon()?></a></td>
                         </tr>
+                        <?php }?>
                 </table>
             </from>
         <?php
-       }
+       
 
                             }else{
                         ?>
@@ -112,6 +113,5 @@
         }
 
     ?>
-
 
 
