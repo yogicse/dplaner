@@ -1,26 +1,22 @@
 <?php
-//$uid = $_SESSION['id'];
-$id = $_GET['id'];
-$select = "SELECT*FROM notestable WHERE id = $id ";
 
-$data = mysqli_query($connection, $select);
+$uid = get_session_user_id();
+$id = $_GET['id'];
+$query = "SELECT*FROM notestable LEFT JOIN share_note
+ON notestable.id = share_note.note_id
+WHERE share_note.user_id = '$uid'";
+
+$data = mysqli_query($connection, $query);
+$result = mysqli_num_rows($data);
 
 $row = mysqli_fetch_array($data);
- 
+
 ?>
 <div class="d-grid gap-2 d-md-flex " style="text-align:left">
     <a class="btn btn-info p-2" href="note.php" role="button">Back</a>
     
 </div> 
 
-<div class="d-grid gap-2 d-md-flex " style="text-align:right">
-    <a class="btn btn-primary p-2" href="note.php?source=add_notes" role="button">Add New</a>
-   
-    <a class="btn btn-success p-2" href='/user/note.php?id=<?=$row['id']?>&source=edit_notes'><?=edit_icon()?></a>
-    <a class="btn btn-danger p-2" href='/user/note.php?id=<?=$row['id']?>&source=delete_notes'><?=delete_icon()?></a>
-    <a class="btn btn-primary p-2" href='/user/note.php?id=<?=$row['id']?>&source=share_notes'><?=share_icon()?></a>
-
-</div> 
 
  <div >
     <hr>

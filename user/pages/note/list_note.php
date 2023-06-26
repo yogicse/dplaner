@@ -82,6 +82,7 @@ if(isset($_POST['submit'])) {
                 <td class="text-center"><?php echo $row['created_at']; ?></td>
                 <td class="text-center"><?php echo $row['updated_at']; ?></td>
                 <td class="text-center"><a href='/user/note.php?id=<?=$row['id']?>&source=view_notes'><?=view_icon()?></a></td>
+          
             </tr>
         <?php
        }
@@ -93,7 +94,7 @@ if(isset($_POST['submit'])) {
         <?php
     }
     ?>
-        <!-- table code -->
+      </tbody>   <!-- table code -->
 </table>
 
 

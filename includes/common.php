@@ -186,6 +186,11 @@ function edit_icon()
     return '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>';
 }
 
+function share_icon()
+{
+    return '<i class="fa fa-share" aria-hidden="true"></i>';
+}
+
 function view_icon()
 {
     return '<i class="fa fa-eye" aria-hidden="true"></i>';

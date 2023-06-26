@@ -108,6 +108,9 @@
                             <li>
                                 <a href="note.php?source=add_notes"> Add Notes</a>
                             </li>
+                            <li>
+                                <a href="note.php?source=shared_notes"> Shared Notes</a>
+                            </li>
                             
                         </ul>
                     </li>

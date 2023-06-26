@@ -58,6 +58,21 @@
                                 include "pages/note/delete_note.php";
                             break;
 
+                            case 'share_notes';
+                                include "pages/note/share_note.php";
+                            break;
+
+                            case 'send_notes';
+                                include "pages/note/send_note.php";
+                            break;
+                            case 'shared_notes';
+                                include "pages/note/shared_note.php";
+                            break;
+
+                            case 'view_shared_notes';
+                            include "pages/note/view_shared_note.php";
+                            break;
+
                             default:
                                 include "pages/note/list_note.php";
                             break;
