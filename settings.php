@@ -15,7 +15,7 @@ if($debug) {
 
 $currentDomain = $_SERVER['SERVER_NAME'];
 
-define( 'DB_NAME', 'projectmanegment' );
+define( 'DB_NAME', 'projectmanegmentdemo' );
 
 /** Database database username */
 define( 'DB_USER', 'root' );
@@ -35,14 +35,19 @@ define( 'DB_HOST', 'localhost' );
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'projectmanegment_';
+$table_prefix = 'projectmanegmentdemo_';
 
 if ( defined( 'CLI' ) ) {
     $_SERVER['HTTP_HOST'] = 'localhost';
 }
 
-define('SITEURL','http://' . $_SERVER['HTTP_HOST'] . '/');
-define('HOME','http://' . $_SERVER['HTTP_HOST'] . '/');
+// define('SITEURL','http://' . $_SERVER['HTTP_HOST'] . '/');
+// define('HOME','http://' . $_SERVER['HTTP_HOST'] . '/');
+
+define('SITEURL','http://dplaner.local/');
+define('HOME','http://dplaner.local/');
+
+
 
 /* Do not edit passed this comment! */
 

@@ -3,10 +3,7 @@ include_once 'includes/db.php';
  include "includes/header.php";
 
 
-// $signimagepath = '';
-// if (isset($_POST['signimagepath'])) {
-//     $signimagepath = $_POST['signimagepath'];
-// }
+
 
 if(isset($_POST['new_user'])) {
 createUser();

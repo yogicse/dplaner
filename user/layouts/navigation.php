@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/client/dashboard.php">Notes Project</a>
+                <a class="navbar-brand" href="/user/dashboard.php">Notes Project</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -98,37 +98,18 @@
                     <li>
                         <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-<!-- 
-                    
 
-                   <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#invoices"><i class="fa fa-book fa-fw"></i> Court <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="invoices" class="collapse submenu">
-                            <li>
-                                <a href="court.php?source=documents"> Documents</a>
-                            </li>
-                            <li>
-                                <a href="court.php?source=add_documents"> Add Documents</a>
-                            </li>
-                            <li>
-                               
-                                <a href="court.php?source=cases">Court Cases</a>
-                            </li>
-                        </ul>
-                    </li> -->
-
-
-
-
-                    <!--for  notes -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#invoices"><i class="fa fa-book fa-fw"></i> Note <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="invoices" class="collapse submenu">
                             <li>
-                                <a href="note.php?source=notes"> View Notes</a>
+                                <a href="note.php?source=notes">Notes</a>
                             </li>
                             <li>
                                 <a href="note.php?source=add_notes"> Add Notes</a>
+                            </li>
+                            <li>
+                                <a href="note.php?source=shared_notes"> Shared Notes</a>
                             </li>
                             
                         </ul>

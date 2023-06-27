@@ -21,7 +21,7 @@ if (empty($_SESSION['role'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=(isset($page_title) && !empty($page_title)) ? $page_title." - " : ""?> Legal CMS Administration</title>
+    <title><?=(isset($page_title) && !empty($page_title)) ? $page_title." - " : ""?> Notes Project</title>
 
     <link href="/assets/back/kendo/js/kendo.common.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/back/kendo/js/kendo.blueopal.min.css" rel="stylesheet" type="text/css" />
@@ -41,15 +41,6 @@ if (empty($_SESSION['role'])) {
 
     <script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="/assets/ckeditor/samples/js/readonlyeditor.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
 
     <style>
         .bulk_options {

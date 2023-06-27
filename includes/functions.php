@@ -1,36 +1,28 @@
 <?php
 include_once 'includes/db.php';
+include_once 'includes/common.php';
 
 function createUser(){
     global $connection;
 
-    // if(!isset($_SESSION)){
-    //     session_start();
-    // }
-
-   
             $user_username     = mysqli_real_escape_string($connection, $_POST['username']);
             $user_password     = mysqli_real_escape_string($connection, $_POST['password']);
             $user_firstname    = mysqli_real_escape_string($connection, $_POST['firstname']);
             $user_lastname     = mysqli_real_escape_string($connection, $_POST['lastname']);
             $user_email        = mysqli_real_escape_string($connection, $_POST['email']);
-         
-            
             $user_phone        = mysqli_real_escape_string($connection, $_POST['phone']);
-         
-          
             $user_role         = "User";
 
-            $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
-            
+          //  $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
             
             $current_date = date("Y-m-d");
             $current_time = time();
             $user_password = md5($user_password);
-        
             $current_date = date("Y-m-d H:i:s");
             $update_date = date("Y-m-d H:i:s");
             $current_time = time();
+          
+          
             if (checkUsername($user_username)){
                 $message = "The username you have entered already exists";
                     }
@@ -42,33 +34,8 @@ function createUser(){
                 
 
             $create_user_query = mysqli_query($connection, $query);
-       
+     
      }
-}
-
-
-function checkUsername($user_username){
-    global $connection;
-    $query = "SELECT username FROM users WHERE username='{$user_username}'";
-    $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) > 0){
-        return true;
-    }
-        else{
-            return false;
-        }
-}
-
-function checkEmail($user_email,$column = 'username'){
-    global $connection;
-    $query = "SELECT username FROM users WHERE ".$column."='{$user_email}'";
-    $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) > 0){
-        return true;
-    }
-        else{
-            return false;
-        }
 }
 
 
@@ -81,7 +48,7 @@ function loginUser(){
     $username = mysqli_real_escape_string($connection, $_POST['username']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $password = md5($password);
-    $select = "SELECT id,username,password,firstname,lastname,email,phone, role FROM users WHERE username='$username'";
+    $select = "SELECT id,username,password,firstname,lastname,email,phone, role FROM users WHERE username='$username' && password ='$password'";
     
     $query = mysqli_query($connection,$select);
     $row = mysqli_num_rows($query);
@@ -89,11 +56,7 @@ function loginUser(){
     
        
     if($row == 1){
-        // $username = $fetch['username'];
-        // $id = $fetch['id'];
-        // session_start();
-        // $_SESSION['username'] = $username;
-        // $_SESSION['id'] = $id;
+       
 
         $user_user_id      = $fetch['id'];
         $user_username    = $fetch['username'];
@@ -126,6 +89,7 @@ function loginUser(){
      }
     }
     
+
 
 
 ?>
