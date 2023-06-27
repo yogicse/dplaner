@@ -1,11 +1,8 @@
-
 <?php
 $redirect_url = "/user/note.php?source=documents";
 // print_r($_GET);
 $user_id = $_GET['id'];
 $note_id = $_GET['note_id'];
-// echo $user_id;
-// echo $note_id;
 
 $send_query = "INSERT INTO share_note (user_id, note_id) VALUE ('$user_id', '$note_id')";
 $data = mysqli_query($connection, $send_query);
@@ -17,7 +14,5 @@ if ($data) {
 } else {
     echo "Database error: " . $mysqli_last_error($connection);
 }
-
-
 
 ?>

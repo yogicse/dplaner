@@ -115,6 +115,21 @@
                         </ul>
                     </li>
                  <!--end for  notes -->
+
+                 <!-- for task module -->
+                 <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#task"><i class="fa fa-tasks" aria-hidden="true"></i> Task <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="task" class="collapse submenu">
+                            <li>
+                                <a href="task.php?source=tasks">task</a>
+                            </li>
+                            <li>
+                                <a href="task.php?source=add_tasks"> Add Task</a>
+                            </li>  
+                        </ul>
+                    </li>
+<!-- end of task module -->
+
                    
                     <li>
                         <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> My Profile</a>
