@@ -96,11 +96,11 @@
                 <ul class="nav navbar-nav side-nav">
                    <br />
                     <li>
-                        <a href="dashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="dashboard.php"> <img src="..\assets\back\images\dashboard.jpg" alt="" width="25" height="26">Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#invoices"><i class="fa fa-book fa-fw"></i> Note <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#invoices"><img src="..\assets\back\images\correspondence.png" alt="" width="25" height="26"> Note <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="invoices" class="collapse submenu">
                             <li>
                                 <a href="note.php?source=notes">Notes</a>
@@ -118,7 +118,7 @@
 
                  <!-- for task module -->
                  <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#task"><i class="fa fa-tasks" aria-hidden="true"></i> Task <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#task"><img src="..\assets\back\images\task.png" alt="" width="25" height="26"> Task <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="task" class="collapse submenu">
                             <li>
                                 <a href="task.php?source=tasks">task</a>
@@ -132,7 +132,7 @@
 
                    
                     <li>
-                        <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> My Profile</a>
+                        <a href="profile.php"><img src="..\assets\back\images\profile.png" alt="" width="25" height="26"> My Profile</a>
                     </li>    
 
                 </ul>
