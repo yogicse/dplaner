@@ -4,7 +4,14 @@
     $source = get_source();  
     $page_title = getTitle($source);
 
-   
+    if($page_title == "Task") {
+        $page_title = "Tasks";
+    }
+    
+    if($source  == "blank") {
+        include "pages/court/cases/blank.php";
+        exit();
+    }
     include 'layouts/header.php';
 ?>
 
@@ -19,9 +26,9 @@
                 <?=message()?>
 
                 <h1 class="page-header">
-                        <?php if ($page_title === 'Task') :?>       
-                        <large>Task</large>
-                        <small>List of your current task</small>
+                        <?php if ($page_title === ' Your Task') :?>       
+                        <large>Your Task</large>
+                        <small>List of your current and upcoming Task</small>
                         <?php else:?>
                             <?=$page_title?>
                         <?php endif;?>

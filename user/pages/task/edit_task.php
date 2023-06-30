@@ -1,5 +1,5 @@
 <?php
-$redirect_url = "/user/task.php?source=documents";
+$redirect_url = "/user/task.php?source=";
     $id = $_GET['id'];
     $select = "SELECT*FROM tasktable WHERE id = $id ";
     $data = mysqli_query($connection, $select);

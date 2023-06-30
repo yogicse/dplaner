@@ -9,12 +9,13 @@
     <button class="btn btn-primary my-2 my-sm-0" type="submit" name="search" value="search">Search</button>
 </form>
 
+
        
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Email</th>
-            <th>Action</th>
+            <th colspan='2'>Action</th>
         </tr>
     </thead>    
 
@@ -25,19 +26,22 @@
     $query = "SELECT*FROM users WHERE `email` LIKE '%$keyword%' ";
     $data = mysqli_query($connection, $query);
     $result = mysqli_num_rows($data);
-    $row = mysqli_fetch_array($data);
+
+   
 
     ?> 
         <tbody>
             <?php
         if($result > 0){
         while($row = mysqli_fetch_array($data)){
+          
             ?>
                 <tr>
                     <td><?php echo $row['email']; ?></td>
                     <td>
                     <a class="btn btn-success p-2" href='/user/note.php?id=<?=$row['id']?>&note_id=<?=$_GET['id']?>&source=send_notes'>Send</a>
-                    </td>
+                    <a class="btn btn-primary p-2" href='/user/note.php?id=<?=$row['id']?>&email=<?=$row['email']?>&note_id=<?=$_GET['id']?>&source=send_invites'>Invite</a>    
+                </td>
                     
                 </tr>
             <?php

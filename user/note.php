@@ -5,7 +5,7 @@
     $page_title = getTitle($source);
 
     if($page_title == "Note") {
-        $page_title = "Note Orders";
+        $page_title = "Notes";
     }
     
     if($source  == "blank") {
@@ -66,10 +66,16 @@
                             case 'send_notes';
                             include "pages/note/send_note.php";
                             break;
+
+                            case 'send_invites';
+                            include "pages/note/invite_note.php";
+                            break;
                             
                             case 'view_shared_notes';
                             include "pages/note/view_shared_note.php";
                             break;
+                            
+                            
 
                             default:
                                 include "pages/note/list_note.php";

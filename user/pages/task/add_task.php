@@ -1,6 +1,6 @@
 <?php
 // session_start();
-$redirect_url = "/user/task.php?source=documents";
+$redirect_url = "/user/task.php?source=";
 if(!isset($_SESSION['username'])){ 
  header('location:../login.php');
  

@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$redirect_url = "/user/task.php?source=documents";
+$redirect_url = "/user/task.php?source=";
 $queryd = "DELETE FROM tasktable WHERE id = '$id'";
 
 $delete_q = mysqli_query($connection, $queryd);

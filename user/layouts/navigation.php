@@ -121,7 +121,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#task"><img src="..\assets\back\images\task.png" alt="" width="25" height="26"> Task <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="task" class="collapse submenu">
                             <li>
-                                <a href="task.php?source=tasks">task</a>
+                                <a href="task.php?source=tasks">Task</a>
                             </li>
                             <li>
                                 <a href="task.php?source=add_tasks"> Add Task</a>

@@ -1,5 +1,5 @@
 <?php
-$redirect_url = "/user/note.php?source=documents";
+$redirect_url = "/user/note.php?source=";
 // print_r($_GET);
 $user_id = $_GET['id'];
 $note_id = $_GET['note_id'];
