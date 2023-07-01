@@ -1,6 +1,6 @@
 <?php
-$page_url = "/user/note.php?r=1&source=documents";
-$redirect_url = "/user/note.php?r=1&source=documents";
+$page_url = "/user/note.php?r=1&source=";
+$redirect_url = "/user/note.php?r=1&source=";
 
 if(!isset($_SESSION['username'])){ 
     header('location:../login.php');

@@ -1,19 +1,15 @@
 <?php
-$page_url = "/user/note.php?r=1&source=documents";
-$redirect_url = "/user/note.php?r=1&source=documents";
-$uid = get_session_user_id();
-// $uid = $_GET['id'];
-
+    $page_url = "/user/note.php?r=1&source=documents";
+    $redirect_url = "/user/note.php?r=1&source=documents";
+    $uid = get_session_user_id();
 
  $query = "SELECT*FROM notestable LEFT JOIN share_note
-ON notestable.id = share_note.note_id
-WHERE share_note.user_id = '$uid'";
+    ON notestable.id = share_note.note_id
+    WHERE share_note.user_id = '$uid'";
 
-$data = mysqli_query($connection, $query);
-$result = mysqli_num_rows($data);
-
-$row = mysqli_fetch_array($data);
-
+    $data = mysqli_query($connection, $query);
+    $result = mysqli_num_rows($data);
+    $row = mysqli_fetch_array($data);
 ?>
 
 <table class="table table-bordered table-hover">
