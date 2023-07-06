@@ -64,100 +64,111 @@ if(isset($_POST['submit'])){
 ?>
 
 
+    <div class="card shadow mb-4">
 
+        <h2 class="text-center">Notes list</h2>
+        <div class="card-body">
+            <form class="form-inline my-2 my-lg-0" method="POST">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" >
+                        <tr>
+                            <td>
+                                <label class="form-control" for="from">From</label>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="from" required value="<?php echo $fromdate ?>">
+                            </td>
+                            <td>
+                                <label class="form-control" for="to">to</label>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="to" required value="<?php echo $todate ?>">
+                            </td>
+                            <td>
+                                <input type="submit" name="submit" value="Filter" class="btn btn-warning my-2 my-sm-0">
+                            </td>
+                        </tr>
+                        <tr>
 
-<h2 class="text-center">Notes list</h2>
-
-<div>
-    <form class="form-inline my-2 my-lg-0" method="POST">
-
-       
-        <label for="from">From</label>
-        <input type="date" id="from" name="from" required value="<?php echo $fromdate ?>">
-        <label for="to">to</label>
-        <input type="date" id="to" name="to" required value="<?php echo $todate ?>">
-        <input type="submit" name="submit" value="Filter" class="btn btn-warning my-2 my-sm-0">
-
-
-    </form>
-
-    <form action="" method='post'>
-    <input class="form-control-warning mr-sm-2" type="search" placeholder="Search" name="keyword"
-            aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit" name="search" value="search">Search</button>
-
-    </form>
-
-
-
-
-
+                            <td>
+                                <input class="form-control warning mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
+                            </td>
+                            <td>
+                                <button class="btn btn-success my-2 my-sm-0" type="submit" name="search" value="search">Search</button>
+                            </td>
+                            <td colspan="3">
+                                <div class="d-grid gap-2 d-md-flex " style="text-align:right">
+                                    <a class="btn btn-primary p-2" href="note.php?source=add_notes" role="button">Add New</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
 </div>
 
 
-<div class="d-grid gap-2 d-md-flex " style="text-align:right">
-    <a class="btn btn-primary p-2" href="note.php?source=add_notes" role="button">Add New</a>
-</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable">
 
-</div>
+                        <thead>
+                            <tr>
+                                <th style="background-color:#36b9cc; color:white">Id</th>
+                                <th style="background-color:#36b9cc; color:white">Title</th>
+                                <th style="background-color:#36b9cc; color:white">Notes</th>
+                                <th style="background-color:#36b9cc; color:white">Created At</th>
+                                <th style="background-color:#36b9cc; color:white">Updated At</th>
+                                <th colspan='2' style="background-color:#36b9cc; color:white">Action</th>
 
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th style="background-color:#36b9cc; color:white">Id</th>
+                                <th style="background-color:#36b9cc; color:white">Title</th>
+                                <th style="background-color:#36b9cc; color:white">Notes</th>
+                                <th style="background-color:#36b9cc; color:white">Created At</th>
+                                <th style="background-color:#36b9cc; color:white">Updated At</th>
+                                <th colspan='2' style="background-color:#36b9cc; color:white">Action</th>
 
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <?php
 
-
-<?php
-
-
-
-
-        ?>
-
-
-<table class="table table-bordered table-hover">
-
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Notes</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th colspan='2'>Action</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-
-    if($result > 0){
-       // echo "display";
-       while($row = mysqli_fetch_array($data)){
-        ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['notes']; ?></td>
-            <td><?php echo $row['created_at']; ?></td>
-            <td><?php echo $row['updated_at']; ?></td>
-            <td><a href='/user/note.php?id=<?=$row['id']?>&source=edit_notes'><?=edit_icon()?></a></td>
-            <td><a href='/user/note.php?id=<?=$row['id']?>&source=delete_notes'><?=delete_icon()?></a></td>
-        </tr>
+                                    if($result > 0){
+                                    // echo "display";
+                                    while($row = mysqli_fetch_array($data)){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row['id']; ?></td>
+                                            <td><?php echo $row['title']; ?></td>
+                                            <td><?php echo $row['notes']; ?></td>
+                                            <td><?php echo $row['created_at']; ?></td>
+                                            <td><?php echo $row['updated_at']; ?></td>
+                                            <td><a href='/user/note.php?id=<?=$row['id']?>&source=edit_notes'><?=edit_icon()?></a></td>
+                                            <td><a href='/user/note.php?id=<?=$row['id']?>&source=delete_notes'><?=delete_icon()?></a></td>
+                                        </tr>
 
 
-        <?php
-       }
+                                        <?php
+                                    }
 
-    }else{
-        ?>
-        <tr>
-            <td>No Record Found</td>
-        </tr>
-        <?php
-    }
-    ?>
+                                    }else{
+                                        ?>
+                                        <tr>
+                                            <td>No Record Found</td>
+                                        </tr>
+                                        <?php
+                                    }
+                            ?>
 
+                        </tbody>
 
-
-</table>
+                    </table>
+                </div>
+        </div>
 
 <?php
     $sql1 = "SELECT*FROM notestable WHERE user_id = '$uid'";
@@ -189,5 +200,5 @@ if(isset($_POST['submit'])){
 
     ?>
 
-
+</div>
 

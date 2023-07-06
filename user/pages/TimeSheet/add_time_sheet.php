@@ -39,11 +39,11 @@
         <form action="" method="post" >
                 <table class="table table-borderless">
                         <tr>
-                                <td><h3>Add Hours</h3></td>
+                                <td><h3><b>Add Hours</b></h3></td>
                                 <td></td>
                         </tr>
                         <tr class="table-primary">
-                                <td colspan="2">Projects</td>
+                                <td colspan="2"><b>Projects</b></td>
                         </tr>
                         <tr>
                                         <td colspan="2">
@@ -58,11 +58,11 @@
                                         </td>
                         </tr>
                                 <tr class="table-primary">
-                                        <td colspan="2">Time Consumed</td>
+                                        <td colspan="2"><b>Time Consumed</b></td>
                                 </tr>
                         <tr>
                                 <td><select class="form-control form-select-lg" name="hours" id="hours" required>
-                                        <option value="0">hours</option>
+                                        <option value="0"><b>Hours</b></option>
                                 <?php
                                 for($i=1;$i<=24;$i++)
                                 {?>
@@ -74,7 +74,7 @@
                                 </td>
                                 <td>
                                 <select class="form-control form-select-lg" name="minutes" id="minutes">
-                                        <option value="0">minutes</option>
+                                        <option value="0"><b>Minutes</b></option>
                                         <?php
                                 for($i=0;$i<60;$i+=5)
                                 {?>
@@ -86,7 +86,7 @@
                                 </td>
                         </tr>
                         <tr>
-                                <td colspan="2">Task Details</td>
+                                <td colspan="2"><b>Task Details</b></td>
                         </tr>
                         <tr>
                                 <td colspan="2">
@@ -96,7 +96,7 @@
                         </tr>
                         <tr>
                                 <td colspan="2">
-                                Date
+                                <b>  Date</b>
                                 </td>
                         </tr>
                         <tr>

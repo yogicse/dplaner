@@ -28,28 +28,37 @@
 
 
 
-        <form>
+    <div class="card shadow mb-4">
         <h2 class="text-center">Time Sheet list</h2>
 
-            <div class="d-grid gap-2 d-md-flex " style="text-align:right">
+            <div class="d-grid gap-2 d-md-flex float-right">
                 <a class="btn btn-primary p-2" href="time_sheet.php?source=add_time_sheet" role="button">Add New</a>
             </div>
-            
-            </div>
-
-            <table class="table table-bordered table-hover">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable">
 
                     <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Project</th>
-                                <th>Summary</th>
-                                <th>Working Hours & Minutes</th>  
-                                <th>Submitted Date</th>
-                                <th colspan='2'>Action</th>
+                                <th style="background-color:#36b9cc; color:white">Id</th>
+                                <th style="background-color:#36b9cc; color:white">Project</th>
+                                <th style="background-color:#36b9cc; color:white">Summary</th>
+                                <th style="background-color:#36b9cc; color:white">Working Hours & Minutes</th>  
+                                <th style="background-color:#36b9cc; color:white">Submitted Date</th>
+                                <th colspan='2' style="background-color:#36b9cc; color:white">Action</th>
 
                             </tr>
                     </thead>
+                    <tfoot>
+                            <tr>
+                                <th style="background-color:#36b9cc; color:white">Id</th>
+                                <th style="background-color:#36b9cc; color:white">Project</th>
+                                <th style="background-color:#36b9cc; color:white">Summary</th>
+                                <th style="background-color:#36b9cc; color:white">Working Hours & Minutes</th>  
+                                <th style="background-color:#36b9cc; color:white">Submitted Date</th>
+                                <th colspan='2' style="background-color:#36b9cc; color:white">Action</th>
+                            </tr>
+                    </tfoot>
                 <tbody>
                         <?php
 
@@ -63,26 +72,18 @@
                             <td><?php echo $row['task_details']; ?></td>
                             <td><?php echo $row['work_hours']." h :".$row['work_minutes']." m";?></td>
                             <td><?php echo $row['time_sheet_date']; ?></td>
-                            <td><a href='/user/time_sheet.php?id=<?=$row['id']?>&source=delete_time_sheet'><?=delete_icon()?></a></td>
+                            <td><a href='/user/time_sheet.php?id=<?=$row['id']?>&source=delete_time_sheet'><?= delete_icon() ?></a></td>
                         </tr>
-                        <?php }?>
-                </table>
-            </from>
-        <?php
-       
-
-                            }else{
+                        <?php } }else{
                         ?>
-                <tr>
-                    <td>No Record Found</td>
-                </tr>
-            <?php
-        }
-    ?>
+                        <tr>
+                            <td>No Record Found</td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
 
-
-
-</table>
 
 <?php
         $sql1 = "SELECT*FROM time_sheet_detail WHERE user_id = '$uid'";
@@ -113,5 +114,6 @@
         }
 
     ?>
+    </div>
 
 

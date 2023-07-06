@@ -103,7 +103,7 @@ $uid = $_SESSION['id'];
 
 
 <form action="" method="post" >
-<h2>Add Notes</h2>
+<h2>Add Notes </h2>
 <div class="form-row">
 
     <div class="form-row">
